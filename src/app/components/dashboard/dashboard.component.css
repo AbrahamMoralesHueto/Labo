@@ -31,7 +31,7 @@ body {
 }
 
 .p-footer{
-  font-size: calc(.5em + .5vw);
+  font-size: calc(.6em + .6vw);
 }
 
 .cover-container {
@@ -65,10 +65,10 @@ body {
   border-bottom-color: #fff;
 }
 
-.footer-end{
+.mt-50 {
   margin-top: auto;
 }
 
-.mt-50 {
+.footer-end{
   margin-top: auto;
 }
