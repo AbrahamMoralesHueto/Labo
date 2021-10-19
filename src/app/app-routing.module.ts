@@ -6,6 +6,9 @@ import { LoginClienteComponent } from './components/login-cliente/login-cliente.
 
 const routes: Routes = [
   {
+    path:'', redirectTo: '/login-cliente', pathMatch: 'full'
+  },
+  {
     path: 'dashboard', component: DashboardComponent
   },
   {

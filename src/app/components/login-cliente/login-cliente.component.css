@@ -1,4 +1,23 @@
 body {
     height: 100vh;
     width: auto;
-  }
+}
+
+.input-inline{
+  display: block;
+  margin: 10px auto;
+  width: calc(13em + 13vw);
+  height: 30px;
+}
+
+.mgTitle{
+  margin-top: 5%;
+}
+
+.title{
+  font-size: calc(2em + 2vw);
+}
+
+.mgInput{
+  margin: 5%;
+}
