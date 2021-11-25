@@ -1,21 +1,29 @@
 <body>
     <div class="container-fluid d-flex h-100 text-center text-white bg-dark">
         <div class="d-flex w-100 h-100 flex-column">
-    
+
             <app-nav></app-nav>
 
             <div class="mgTitle">
-                <h3 class="title">Bienvenido Cliente</h3>
+                <h3 class="title">Bienvenido</h3>
             </div>
 
+            <nav class="nav nav-masthead justify-content-center float-md-end">
+                <button class="nav-link" (click)="client()">Cliente</button>
+                <button class="nav-link" (click)="recep()">Recepcionista</button>
+                <button class="nav-link" (click)="labo()">Laboratorista</button>
+            </nav>
+
             <div class="center mgInput">
-                <form action="">
-                    <input type="text" id="user" placeholder="Nombre o email del usuario" class="input-inline input">
-                    <input type="password" id="password" placeholder="Contraseña" class="input-inline input">
-                    <input type="submit" name="Login" id="userLogin" class="btn btn-primary">
+                <form method="post">
+                    <input type="text" [(ngModel)]="email" name="email" placeholder="Email del usuario"
+                        required="required" class="input-inline input">
+                    <input type="password" [(ngModel)]="pwd" name="pwd" placeholder="Contraseña" required="required"
+                        class="input-inline input">
+                    <button (click)="login()" class="btn btn-primary">Entrar</button>
                 </form>
             </div>
-            
+
         </div>
     </div>
 </body>

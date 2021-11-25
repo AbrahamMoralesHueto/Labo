@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   }
 
   public login(){
-    this.router.navigate(['login-cliente']);
+    this.router.navigate(['login']);
   }
 
 }

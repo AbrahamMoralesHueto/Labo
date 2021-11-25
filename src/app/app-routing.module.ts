@@ -6,13 +6,13 @@ import { LoginClienteComponent } from './components/login-cliente/login-cliente.
 
 const routes: Routes = [
   {
-    path:'', redirectTo: '/login-cliente', pathMatch: 'full'
+    path:'', redirectTo: '/login', pathMatch: 'full'
   },
   {
     path: 'dashboard', component: DashboardComponent
   },
   {
-    path: 'login-cliente', component: LoginClienteComponent
+    path: 'login', component: LoginClienteComponent
   }
 ];
 
