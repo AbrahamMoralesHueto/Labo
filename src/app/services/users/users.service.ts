@@ -10,16 +10,8 @@ export class UsersService {
 
   constructor(private http: HttpClient, private cookie: CookieService){}
 
-  loginClient(user: any): Observable<any>{
-    return this.http.post("https://app-labo.herokuapp.com/pacients", user);
-  }
-
-  loginRecep(user: any): Observable<any>{
+  login(user: any): Observable<any>{
     return this.http.post("https://app-labo.herokuapp.com/login", user);
-  }
-
-  loginLabo(user: any): Observable<any>{
-    return this.http.post("url", user);
   }
  
   setToken(token: string){
@@ -28,6 +20,5 @@ export class UsersService {
   
   getToken(){
     return this.cookie.get("token");
-  }
-  
+  } 
 }

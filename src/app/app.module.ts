@@ -12,6 +12,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { LoginClienteComponent } from './components/login-cliente/login-cliente.component';
 import { UsersService } from './services/users/users.service';
 import { CookieService } from 'ngx-cookie-service';
+import { ViewRecepComponent } from './components/view-recep/view-recep.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CookieService } from 'ngx-cookie-service';
     ClienteComponent,
     DashboardComponent,
     NavComponent,
-    LoginClienteComponent
+    LoginClienteComponent,
+    ViewRecepComponent
   ],
   imports: [
     BrowserModule,

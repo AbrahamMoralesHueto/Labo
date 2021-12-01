@@ -22,24 +22,17 @@ export class LoginClienteComponent implements OnInit {
 
     const user = {
       email: this.email,
-      pwd: this.pwd
+      pwd: this.pwd,
+      rol: this.typeUser
     };
 
-    if (this.typeUser === 'client') {
-      this.userService.loginClient(user).subscribe(data => {
+    if (this.typeUser != null) {
+      this.userService.login(user).subscribe(data => {
         if (data.status === 'true') {
           this.userService.setToken(data.token);
         }
       }, error => {
         console.log("Error " + error);
-      });
-    } else if (this.typeUser === 'recep') {
-      this.userService.loginRecep(user).subscribe(data => {
-        this.userService.setToken(data.token);
-      });
-    } else if (this.typeUser === 'labo') {
-      this.userService.loginLabo(user).subscribe(data => {
-        this.userService.setToken(data.token);
       });
     } else {
       alert('Elige el tipo de usuario');
@@ -47,7 +40,7 @@ export class LoginClienteComponent implements OnInit {
   }
 
   client() {
-    this.typeUser = 'client';
+    this.typeUser = 'pacient';
     // console.log(this.typeUser);
   }
 
@@ -57,7 +50,7 @@ export class LoginClienteComponent implements OnInit {
   }
 
   labo() {
-    this.typeUser = 'labo';
+    this.typeUser = 'lab';
     // console.log(this.typeUser);
   }
 }
