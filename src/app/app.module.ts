@@ -13,6 +13,10 @@ import { LoginClienteComponent } from './components/login-cliente/login-cliente.
 import { UsersService } from './services/users/users.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ViewRecepComponent } from './components/view-recep/view-recep.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { cliente } from './models/cliente.model';
+import { labo } from './models/labo.model';
+import { analisis } from './models/analisis.model';
 
 @NgModule({
   declarations: [
@@ -27,10 +31,14 @@ import { ViewRecepComponent } from './components/view-recep/view-recep.component
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [
     UsersService,
+    cliente,
+    labo,
+    analisis,
     CookieService
   ],
   bootstrap: [AppComponent]

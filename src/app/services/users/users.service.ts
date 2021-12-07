@@ -14,6 +14,34 @@ export class UsersService {
     return this.http.post("https://app-labo.herokuapp.com/login", user);
   }
  
+  getCards(){
+    return this.http.get("https://app-labo.herokuapp.com/analysisOrder");
+  }
+
+  addClient(cliente: any){
+    return this.http.post("https://app-labo.herokuapp.com/pacients", cliente);
+  }
+
+  addLabo(labo: any){
+    return this.http.post("https://app-labo.herokuapp.com/labs", labo);
+  }
+
+  addAnalisis(analisis: any){
+    return this.http.post("https://app-labo.herokuapp.com/analysis", analisis);
+  }
+
+  getComboBoxClient(){
+    return this.http.get("https://app-labo.herokuapp.com/pacients");
+  }
+
+  getComboBoxLabo(){
+    return this.http.get("https://app-labo.herokuapp.com/labs");
+  }
+  
+  getComboBoxAnalisis(){
+    return this.http.get("https://app-labo.herokuapp.com/analysis");
+  }
+
   setToken(token: string){
     this.cookie.set("token", token);
   }

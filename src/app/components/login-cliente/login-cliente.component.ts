@@ -30,6 +30,9 @@ export class LoginClienteComponent implements OnInit {
       this.userService.login(user).subscribe(data => {
         if (data.status === 'true') {
           this.userService.setToken(data.token);
+          if(this.typeUser = "recep") this.router.navigate(['recep']);
+        }else{
+          alert('Usuario no registrado o credenciales incorrectas');
         }
       }, error => {
         console.log("Error " + error);
