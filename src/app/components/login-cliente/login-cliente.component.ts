@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users/users.service';
+import { CookieService } from "ngx-cookie-service";
 
 @Component({
   selector: 'app-login-cliente',
@@ -13,9 +14,10 @@ export class LoginClienteComponent implements OnInit {
   pwd: string;
   typeUser: string;
 
-  constructor(private router: Router, public userService: UsersService) { }
+  constructor(private router: Router, public userService: UsersService, private cookie: CookieService) { }
 
   ngOnInit(): void {
+    this.deleteCookie();
   }
 
   login() {
@@ -55,5 +57,9 @@ export class LoginClienteComponent implements OnInit {
   labo() {
     this.typeUser = 'lab';
     // console.log(this.typeUser);
+  }
+
+  private deleteCookie(){
+    this.cookie.delete("token");
   }
 }

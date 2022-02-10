@@ -9,7 +9,7 @@
                 <button (click)="openSM(modalLabo)">Agregar Laboratorista</button>
                 <button (click)="openSM(modalAnali)">Agregar Análisis</button>
                 <button (click)="openSM(modalAsig)">Asignar Análisis</button>
-                <button>Cerrar Sesión</button>
+                <button (click)="close()">Cerrar Sesión</button>
             </div>
         </div>
         <div class="col-9 text-center">
@@ -110,9 +110,9 @@
                 <option>Seleccione una opción</option>
                 <option *ngFor="let item of comboBoxL" [value]="item.idlaboratorista">{{item.nombre}} {{item.apellidos}}</option>
             </select>
-            <select name="labo" class="input">
+            <select name="analisis" class="input" [(ngModel)]="idAna">
                 <option>Seleccione una opción</option>
-                <option *ngFor="let item of comboBoxA">{{item.nombre}}</option>
+                <option *ngFor="let item of comboBoxA" [value]="item.idanalisis">{{item.nombre}}</option>
             </select>
         </div>
         <div class="modal-footer">

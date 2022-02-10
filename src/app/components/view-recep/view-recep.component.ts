@@ -4,6 +4,8 @@ import { UsersService } from 'src/app/services/users/users.service';
 import { cliente } from 'src/app/models/cliente.model';
 import { labo } from 'src/app/models/labo.model';
 import { analisis } from 'src/app/models/analisis.model';
+import { CookieService } from "ngx-cookie-service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-recep',
@@ -14,16 +16,18 @@ export class ViewRecepComponent implements OnInit {
 
   public idPac: string = "";
   public idLab: string = "";
-  public idAna: string;
+  public idAna: string = "";
 
   public cards: any = [];
   public comboBoxC: any = [];
   public comboBoxL: any = [];
   public comboBoxA: any = [];
 
-  constructor(private modal: NgbModal, public userService: UsersService, public cliente: cliente, public labo: labo, public analisis: analisis) { }
+  constructor(private modal: NgbModal, private router: Router, public userService: UsersService, public cliente: cliente, public labo: labo, public analisis: analisis, private cookie: CookieService) { }
 
   ngOnInit(): void {
+    this.veriUser();
+
     this.getCards();
     this.getComboBoxClient();
     this.getComboBoxLabo();
@@ -122,11 +126,22 @@ export class ViewRecepComponent implements OnInit {
 
     let asigAnalisis = {
       idPac: this.idPac,
-      idLab: this.idLab
+      idLab: this.idLab,
+      idAnalisis: this.idAna,
+      
     };
-
     console.log(asigAnalisis);
-
   }
 
+  public close(){
+    this.cookie.delete("token");
+    this.router.navigate(['login']);
+  }
+
+  private veriUser(){
+    if(this.cookie.get("token") == ""){
+      this.router.navigate(['login']);
+    }
+  }
+  
 }
