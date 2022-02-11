@@ -4,8 +4,10 @@ import { UsersService } from 'src/app/services/users/users.service';
 import { cliente } from 'src/app/models/cliente.model';
 import { labo } from 'src/app/models/labo.model';
 import { analisis } from 'src/app/models/analisis.model';
+import { recep } from 'src/app/models/recep';
 import { CookieService } from "ngx-cookie-service";
 import { Router } from '@angular/router';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-view-recep',
@@ -23,10 +25,12 @@ export class ViewRecepComponent implements OnInit {
   public comboBoxL: any = [];
   public comboBoxA: any = [];
 
-  constructor(private modal: NgbModal, private router: Router, public userService: UsersService, public cliente: cliente, public labo: labo, public analisis: analisis, private cookie: CookieService) { }
+  constructor(private modal: NgbModal, private router: Router, public userService: UsersService, public cliente: cliente, public labo: labo, public analisis: analisis, private cookie: CookieService, public recep: recep) { }
 
   ngOnInit(): void {
     this.veriUser();
+
+    this.getRecep();
 
     this.getCards();
     this.getComboBoxClient();
@@ -126,11 +130,19 @@ export class ViewRecepComponent implements OnInit {
 
     let asigAnalisis = {
       idPac: this.idPac,
+      idRecep: this.recep.id,
       idLab: this.idLab,
-      idAnalisis: this.idAna,
-      
+      idAna: this.idAna,
+      idStatus: 1,
     };
-    console.log(asigAnalisis);
+
+    this.userService.addAnalysisOrder(asigAnalisis).subscribe(() => {
+      alert("Orden registrada");
+      window.location.reload();
+    }, error => {
+      console.log(error);
+    });
+
   }
 
   public close(){
@@ -141,6 +153,18 @@ export class ViewRecepComponent implements OnInit {
   private veriUser(){
     if(this.cookie.get("token") == ""){
       this.router.navigate(['login']);
+    }
+  }
+
+  private getRecep(){
+    try{
+      let payload = jwt_decode(this.cookie.get("token"));
+      this.recep.id = payload.id;
+      this.recep.name = payload.name;
+      this.recep.lastnames = payload.lastnames;
+      this.recep.rol = payload.rol;
+    }catch(Error){
+      console.log("Hay error");
     }
   }
   

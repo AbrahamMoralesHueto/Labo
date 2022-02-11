@@ -34,9 +34,9 @@ export class UsersService {
     return this.http.post("https://app-labo.herokuapp.com/analysisOrder", analysisOrder);
   }
 
-  addAnalisisOrder(analisis: any){
-    return this.http.post("https://app-labo.herokuapp.com/analysis", analisis);
-  }
+  // addAnalisisOrder(analisis: any){
+  //   return this.http.post("https://app-labo.herokuapp.com/analysis", analisis);
+  // }
 
   getComboBoxClient(){
     return this.http.get("https://app-labo.herokuapp.com/pacients");

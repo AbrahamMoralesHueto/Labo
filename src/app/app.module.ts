@@ -17,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { cliente } from './models/cliente.model';
 import { labo } from './models/labo.model';
 import { analisis } from './models/analisis.model';
+import { recep } from './models/recep';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { analisis } from './models/analisis.model';
     UsersService,
     cliente,
     labo,
+    recep,
     analisis,
     CookieService
   ],
