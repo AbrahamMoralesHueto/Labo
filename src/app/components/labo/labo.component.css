@@ -1,0 +1,61 @@
+body {
+    height: 100vh;
+    width: auto;
+}
+
+/* .container-body{
+    display: flex;
+} */
+
+.container-left{
+    background-color: #fff;
+    height: 100vh;
+}
+
+.container-recep{
+    background-color: #fff;
+    width: 100%;
+    height: 100;
+    padding: 1em .5em;
+    text-align: center;
+}
+
+.container-title{
+    /* width: 100%; */
+    margin-top: 1em;
+    height: 9hv;
+    color: #fff;
+}
+
+.card-analisis{
+    font-size: calc(.5em + .5vw);
+    padding: 1em;
+    border-radius: 10px;
+    background-color: #fff;
+    margin: 1em auto;
+    text-align: center;
+    width: 10px;
+    height: 100;
+}
+
+.input{
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+.modal-body{
+    text-align: center;
+}
+
+.p-card{
+    margin: 0;
+    padding: 0;
+}
+
+.card-title{
+    font-weight:  bolder;
+}
+
+.div-p{
+    margin-bottom: .3em;
+}

@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginClienteComponent } from './components/login-cliente/login-cliente.component';
 import { ViewRecepComponent } from './components/view-recep/view-recep.component';
+import { LaboComponent } from './components/labo/labo.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   },
   {
     path: 'recep', component: ViewRecepComponent
+  }
+  ,
+  {
+    path: 'labo', component: LaboComponent
   }
 ];
 

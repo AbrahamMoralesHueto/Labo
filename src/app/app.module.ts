@@ -18,6 +18,7 @@ import { cliente } from './models/cliente.model';
 import { labo } from './models/labo.model';
 import { analisis } from './models/analisis.model';
 import { recep } from './models/recep';
+import { LaboComponent } from './components/labo/labo.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { recep } from './models/recep';
     DashboardComponent,
     NavComponent,
     LoginClienteComponent,
-    ViewRecepComponent
+    ViewRecepComponent,
+    LaboComponent
   ],
   imports: [
     BrowserModule,

@@ -10,11 +10,11 @@ import { Router } from '@angular/router';
 import jwt_decode from 'jwt-decode';
 
 @Component({
-  selector: 'app-view-recep',
-  templateUrl: './view-recep.component.html',
-  styleUrls: ['./view-recep.component.css']
+  selector: 'app-labo',
+  templateUrl: './labo.component.html',
+  styleUrls: ['./labo.component.css']
 })
-export class ViewRecepComponent implements OnInit {
+export class LaboComponent implements OnInit {
 
   public idPac: string = "";
   public idLab: string = "";
@@ -38,11 +38,12 @@ export class ViewRecepComponent implements OnInit {
     this.getComboBoxAnalisis();
   }
 
-  openSM(contenido) {
-    this.modal.open(contenido, { size: 'md' });
+  
+  openSM(contenido){
+    this.modal.open(contenido,{size:'md'});
   }
-
-  getCards() {
+  
+  getCards(){
     this.userService.getCards().subscribe(data => {
       this.cards = data;
       console.log(this.cards);
@@ -51,7 +52,7 @@ export class ViewRecepComponent implements OnInit {
     });
   }
 
-  getComboBoxClient() {
+  getComboBoxClient(){
     this.userService.getComboBoxClient().subscribe(data => {
       this.comboBoxC = data;
       // console.log(this.comboBoxC);
@@ -60,7 +61,7 @@ export class ViewRecepComponent implements OnInit {
     });
   }
 
-  getComboBoxLabo() {
+  getComboBoxLabo(){
     this.userService.getComboBoxLabo().subscribe(data => {
       this.comboBoxL = data;
       // console.log(this.comboBoxL);
@@ -68,8 +69,8 @@ export class ViewRecepComponent implements OnInit {
       console.log(error);
     });
   }
-
-  getComboBoxAnalisis() {
+  
+  getComboBoxAnalisis(){
     this.userService.getComboBoxAnalisis().subscribe(data => {
       this.comboBoxA = data;
       // console.log(this.comboBoxL);
@@ -78,7 +79,7 @@ export class ViewRecepComponent implements OnInit {
     });
   }
 
-  public addCliente() {
+  public addCliente(){
 
     let cliente = {
       name: this.cliente.name,
@@ -95,7 +96,7 @@ export class ViewRecepComponent implements OnInit {
     });
   }
 
-  public addLabo() {
+  public addLabo(){
 
     let labo = {
       name: this.labo.name,
@@ -112,7 +113,7 @@ export class ViewRecepComponent implements OnInit {
     });
   }
 
-  public addAnalisis() {
+  public addAnalisis(){
 
     let analisis = {
       name: this.analisis.name,
@@ -127,7 +128,7 @@ export class ViewRecepComponent implements OnInit {
     });
   }
 
-  public asignarAnalisis() {
+  public asignarAnalisis(){
 
     let asigAnalisis = {
       idPac: this.idPac,
@@ -146,21 +147,21 @@ export class ViewRecepComponent implements OnInit {
 
   }
 
-  public close() {
+  public close(){
     this.cookie.delete("token");
     this.router.navigate(['login']);
   }
 
-  private veriUser() {
-    if (this.cookie.get("token") == "") {
+  private veriUser(){
+    if(this.cookie.get("token") == ""){
       this.router.navigate(['login']);
     }
   }
 
-  private getRecep() {
-    try {
+  private getRecep(){
+    try{
       //Obtención de payload del token JWT
-      let jsonPay: any[] = Array.of(jwt_decode(this.cookie.get("token")));
+      let jsonPay: any[]  = Array.of(jwt_decode(this.cookie.get("token")));
 
       //Asignación de payload a las variables
       this.recep.id = jsonPay[0].id;
@@ -170,19 +171,9 @@ export class ViewRecepComponent implements OnInit {
 
       // console.log(this.recep);
 
-    } catch (Error) {
+    }catch(Error){
       console.log("Hay error " + Error);
     }
-  }
-
-  public deleteCard(id) {
-    // this.userService.deleteAnalisisOrder(id).subscribe(() => {
-    //   alert("Orden Eliminada");
-    //   window.location.reload();
-    // }, error => {
-    //   console.log(error);
-    // });
-    alert("Eliminado " + id);
   }
 
 }
