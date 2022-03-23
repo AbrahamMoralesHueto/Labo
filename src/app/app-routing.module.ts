@@ -18,8 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'recep', component: ViewRecepComponent
-  }
-  ,
+  },
   {
     path: 'labo', component: LaboComponent
   }

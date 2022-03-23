@@ -175,14 +175,15 @@ export class ViewRecepComponent implements OnInit {
     }
   }
 
+
+  //Modulo de eliminación de card
   public deleteCard(id) {
-    // this.userService.deleteAnalisisOrder(id).subscribe(() => {
-    //   alert("Orden Eliminada");
-    //   window.location.reload();
-    // }, error => {
-    //   console.log(error);
-    // });
-    alert("Eliminado " + id);
+    this.userService.deleteAnalisisOrder(id).subscribe(() => {
+      alert("Orden " + id + " Eliminada");
+      window.location.reload();
+    }, error => {
+      console.log(error);
+    });
   }
 
 }

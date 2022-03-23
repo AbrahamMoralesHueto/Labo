@@ -30,10 +30,15 @@ export class LoginClienteComponent implements OnInit {
 
     if (this.typeUser != null) {
       this.userService.login(user).subscribe(data => {
+        //Comparación para inicio de sesión de roles
         if (data.status === 'true') {
           this.userService.setToken(data.token);
-          if(this.typeUser = "recep") this.router.navigate(['recep']);
-        }else{
+          if (this.typeUser == "recep") {
+            this.router.navigate(['recep']);
+          } else if (this.typeUser == "lab") {
+            this.router.navigate(['labo']);
+          }
+        } else {
           alert('Usuario no registrado o credenciales incorrectas');
         }
       }, error => {
@@ -59,7 +64,7 @@ export class LoginClienteComponent implements OnInit {
     // console.log(this.typeUser);
   }
 
-  private deleteCookie(){
+  private deleteCookie() {
     this.cookie.delete("token");
   }
 }
