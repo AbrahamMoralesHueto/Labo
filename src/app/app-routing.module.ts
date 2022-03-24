@@ -5,6 +5,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginClienteComponent } from './components/login-cliente/login-cliente.component';
 import { ViewRecepComponent } from './components/view-recep/view-recep.component';
 import { LaboComponent } from './components/labo/labo.component';
+import { ClienteComponent } from './components/cliente/cliente.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,9 @@ const routes: Routes = [
   },
   {
     path: 'labo', component: LaboComponent
+  },
+  {
+    path: 'cliente', component: ClienteComponent
   }
 ];
 

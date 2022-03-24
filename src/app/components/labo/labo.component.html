@@ -31,7 +31,8 @@
                         <p class="p-card card-title">Estado</p>
                         <p class="p-card">{{item.estado}}</p>
                     </div>
-                    <button>Modificar</button>
+                    <button *ngIf="item.estado == 'Pendiente'" (click)="processOrder(item.idpedido)">Procesar</button>
+                    <button *ngIf="item.estado == 'En proceso'" (click)="finalityOrder(item.idpedido)">Finalizar</button>
                 </div>
 
             </div>

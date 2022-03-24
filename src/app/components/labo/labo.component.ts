@@ -21,31 +21,31 @@ export class LaboComponent implements OnInit {
     this.getLabo();
     this.getCardsL(this.labo.id);
   }
-  
-  getCardsL(id){
+
+  getCardsL(id) {
     this.userService.getCardsL(id).subscribe(data => {
       this.cards = data;
-      console.log(this.cards);
+      // console.log(this.cards);
     }, error => {
       console.log(error);
     });
   }
 
-  public close(){
+  public close() {
     this.cookie.delete("token");
     this.router.navigate(['login']);
   }
 
-  private veriUser(){
-    if(this.cookie.get("token") == ""){
+  private veriUser() {
+    if (this.cookie.get("token") == "") {
       this.router.navigate(['login']);
     }
   }
 
-  private getLabo(){
-    try{
+  private getLabo() {
+    try {
       //Obtención de payload del token JWT
-      let jsonPay: any[]  = Array.of(jwt_decode(this.cookie.get("token")));
+      let jsonPay: any[] = Array.of(jwt_decode(this.cookie.get("token")));
 
       //Asignación de payload a las variables
       this.labo.id = jsonPay[0].id;
@@ -54,9 +54,35 @@ export class LaboComponent implements OnInit {
 
       // console.log(this.recep);
 
-    }catch(Error){
+    } catch (Error) {
       console.log("Hay error " + Error);
     }
+  }
+
+  public processOrder(id) {
+    let update = {
+      idestado: 2,
+      idpedido: id
+    };
+
+    this.userService.updateInProcessOrder(update).subscribe(() => {
+      window.location.reload();
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  public finalityOrder(id) {
+    let update = {
+      idestado: 3,
+      idpedido: id
+    };
+
+    this.userService.updateFinalityOrder(update).subscribe(() => {
+      window.location.reload();
+    }, error => {
+      console.log(error);
+    });
   }
 
 }

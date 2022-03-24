@@ -21,6 +21,10 @@ export class UsersService {
   getCardsL(id){
     return this.http.get("https://app-labo.herokuapp.com/analysisOrderL/"+id);
   }
+  
+  getCardsP(id){
+    return this.http.get("https://app-labo.herokuapp.com/analysisOrderP/"+id);
+  }
 
   addClient(cliente: any){
     return this.http.post("https://app-labo.herokuapp.com/pacients", cliente);
@@ -52,6 +56,14 @@ export class UsersService {
   
   getComboBoxAnalisis(){
     return this.http.get("https://app-labo.herokuapp.com/analysis");
+  }
+
+  updateInProcessOrder(analysisOrder: any){
+    return this.http.put("https://app-labo.herokuapp.com/analysisOrder", analysisOrder);
+  }
+
+  updateFinalityOrder(analysisOrder: any){
+    return this.http.put("https://app-labo.herokuapp.com/analysisOrder", analysisOrder);
   }
 
   setToken(token: string){

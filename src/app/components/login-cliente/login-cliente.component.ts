@@ -20,7 +20,7 @@ export class LoginClienteComponent implements OnInit {
     this.deleteCookie();
   }
 
-  login() {
+  public login() {
 
     const user = {
       email: this.email,
@@ -37,6 +37,8 @@ export class LoginClienteComponent implements OnInit {
             this.router.navigate(['recep']);
           } else if (this.typeUser == "lab") {
             this.router.navigate(['labo']);
+          } else if (this.typeUser == "pacient") {
+            this.router.navigate(['cliente']);
           }
         } else {
           alert('Usuario no registrado o credenciales incorrectas');

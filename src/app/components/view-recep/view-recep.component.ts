@@ -45,7 +45,6 @@ export class ViewRecepComponent implements OnInit {
   getCards() {
     this.userService.getCards().subscribe(data => {
       this.cards = data;
-      console.log(this.cards);
     }, error => {
       console.log(error);
     });

@@ -1,1 +1,40 @@
-<p>cliente works!</p>
+<body class="bg-dark container-fluid">
+    <div class="row">
+        <div class="col-3 text-center container-left">
+            <div class="container-recep">
+                <p>{{this.cliente.name}}</p>
+                <p>{{this.cliente.lastnames}}</p>
+                <p>Cliente</p>
+                <button (click)="close()">Cerrar Sesión</button>
+            </div>
+        </div>
+        <div class="col-9 text-center">
+            <div class="container-title">
+                <h1>LABO</h1>
+            </div>
+            <div class="row container-card">
+
+                <div [value]="item" *ngFor="let item of cards" class="col-sm-4 card-analisis">
+                    <div class="div-p">
+                        <p class="p-card card-title">Nombre de analisis</p>
+                        <p class="p-card">{{item.analisis}}</p>
+                    </div>
+                    <div class="div-p">
+                        <p class="p-card card-title">Nombre del cliente</p>
+                        <p class="p-card">{{item.paciente}}</p>
+                    </div>
+                    <div class="div-p">
+                        <p class="p-card card-title">Laboratorista</p>
+                        <p class="p-card">{{item.laboratorista}}</p>
+                    </div>
+                    <div class="div-p">
+                        <p class="p-card card-title">Estado</p>
+                        <p class="p-card">{{item.estado}}</p>
+                    </div>
+                    <button (click)="downloadPdf()">Descargar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
