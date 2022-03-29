@@ -15,7 +15,7 @@ body {
 .container-recep{
     background-color: #fff;
     width: 100%;
-    height: 100;
+    height: 100%;
     padding: 1em .5em;
     text-align: center;
 }
@@ -25,17 +25,6 @@ body {
     margin-top: 1em;
     height: 9hv;
     color: #fff;
-}
-
-.card-analisis{
-    font-size: calc(.5em + .5vw);
-    padding: 1em;
-    border-radius: 10px;
-    background-color: #fff;
-    margin: 1em auto;
-    text-align: center;
-    width: 10px;
-    height: 100;
 }
 
 .input{
@@ -59,3 +48,41 @@ body {
 .div-p{
     margin-bottom: .3em;
 }
+
+.div-cards{
+    text-align: center;
+}
+
+.btn-card{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.btn-menu{
+    width: 80%;
+    margin: 10px 10px;
+}
+
+/* ============== */
+
+.card {
+	background-color: #fff;
+    font-size: calc(.5em + .5vw);
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+	padding: 10px;
+	margin: 20px 5px;
+	transition: all 0.5s ease;
+}
+
+.card:hover {
+	box-shadow: 8px 28px 50px rgba(39, 44, 49, 0.07),
+		1px 6px 12px rgba(39, 44, 49, 0.04);
+	transform: translate3D(0, -1px, 0) scale(1.02);
+	transition: all 0.5s ease;
+}
+
+.mx-auto{
+    display: flex;  /*display: flex; el cual vuelve al contenedor un elemento flex*/
+  
+    align-items: center;  /*justify-content: center; le decimos a los elementos del contenedor flex que se ubiquen al centro del eje principal eje horizontal*/
+  }
