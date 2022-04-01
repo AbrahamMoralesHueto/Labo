@@ -1,8 +1,8 @@
 <body>
-    <div class="container-fluid d-flex h-100 text-center text-white bg-dark">
+    <div class="container-fluid d-flex h-100 text-center text-white">
         <div class="d-flex w-100 h-100 flex-column">
 
-            <app-nav></app-nav>
+            <app-nav class="mt-5"></app-nav>
 
             <div class="mgTitle">
                 <h3 class="title">Bienvenido</h3>
@@ -20,7 +20,7 @@
                         required="required" class="input-inline input">
                     <input type="password" [(ngModel)]="pwd" name="pwd" placeholder="Contraseña" required="required"
                         class="input-inline input">
-                    <button (click)="login()" class="btn btn-primary">Entrar</button>
+                    <button (click)="login()" class="btn">Entrar</button>
                 </form>
             </div>
         </div>

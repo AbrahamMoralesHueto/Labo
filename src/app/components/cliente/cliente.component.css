@@ -1,21 +1,14 @@
 body {
     height: 100vh;
     width: auto;
-}
-
-/* .container-body{
-    display: flex;
-} */
-
-.container-left{
-    background-color: #fff;
-    height: 100vh;
+    overflow-x: hidden;
+    background-color: #F28705;
 }
 
 .container-recep{
-    background-color: #fff;
-    width: 100%;
-    height: 100;
+    background-color: #F29F05;
+    width: 90%;
+    height: 100vh;
     padding: 1em .5em;
     text-align: center;
 }
@@ -25,17 +18,6 @@ body {
     margin-top: 1em;
     height: 9hv;
     color: #fff;
-}
-
-.card-analisis{
-    font-size: calc(.5em + .5vw);
-    padding: 1em;
-    border-radius: 10px;
-    background-color: #fff;
-    margin: 1em auto;
-    text-align: center;
-    width: 10px;
-    height: 100;
 }
 
 .input{
@@ -56,20 +38,85 @@ body {
     font-weight:  bolder;
 }
 
+.card-pendiente{
+    color: red;
+}
+
+.card-enProceso{
+    color: orange;
+}
+
+.card-completado{
+    color: green;
+}
+
 .div-p{
     margin-bottom: .3em;
 }
 
+.div-cards{
+    text-align: center;
+}
+
+.btn-card{
+    width: 50%;
+    font-weight: bold;
+    font-size: calc(.4em + .4vw);
+    margin: 0 auto;
+    background-color: #F207A0;
+    color: #fff;
+}
+
+.btn-menu{
+    width: 80%;
+    margin: 10px 10px;
+    background-color: #F207A0;
+    color: #fff;
+    font-weight: bold;
+}
+
+.text{
+    font-size: calc(.7em + .7vw);
+    color: #fff;
+}
+
+.text-color{
+    color: #F207A0;
+}
+
+.name{
+    margin: 0;
+}
+
+.lastnames{
+    margin: 0;
+}
+
+.rol{
+    font-weight: bold;
+    color: #F207A0;
+}
+
+.img-user{
+    width: 50%;
+    margin-bottom: 5px;
+}
+
+.margin-auto{
+    margin: auto 0;
+}
+
+.title{
+    font-size: calc(2em + 2vw);
+}
 /* ============== */
 
 .card {
-	background-color: #fff;
+	background-color: #04BF8A;
+    font-size: calc(.5em + .5vw);
 	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-	border-radius: 20px;
-	padding: 30px;
-	max-width: 400px;
-	min-height: 130px;
-	margin: 20px 0;
+	padding: 10px;
+	margin: 20px 5px;
 	transition: all 0.5s ease;
 }
 
@@ -79,3 +126,16 @@ body {
 	transform: translate3D(0, -1px, 0) scale(1.02);
 	transition: all 0.5s ease;
 }
+
+.btn-menu:hover {
+	box-shadow: 8px 28px 50px rgba(39, 44, 49, 0.07),
+		1px 6px 12px rgba(39, 44, 49, 0.04);
+	transform: translate3D(0, -1px, 0) scale(1.02);
+	transition: all 0.5s ease;
+}
+
+.mx-auto{
+    display: flex;  /*display: flex; el cual vuelve al contenedor un elemento flex*/
+  
+    align-items: center;  /*justify-content: center; le decimos a los elementos del contenedor flex que se ubiquen al centro del eje principal eje horizontal*/
+  }

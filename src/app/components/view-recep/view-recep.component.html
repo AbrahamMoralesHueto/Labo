@@ -1,20 +1,21 @@
-<body class="bg-dark container-fluid">
+<body>
     <div class="row">
-        <div class="col-3 text-center container-left">
+        <div class="col-3 text-center">
             <div class="container-recep">
-                <p>{{this.recep.name}}</p>
-                <p>{{this.recep.lastnames}}</p>
-                <p>Recepcionista</p>
-                <button (click)="openSM(modalCliente)" class="btn-primary btn-menu">Agregar Cliente</button>
-                <button (click)="openSM(modalLabo)" class="btn-primary btn-menu">Agregar Laboratorista</button>
-                <button (click)="openSM(modalAnali)" class="btn-primary btn-menu">Agregar Análisis</button>
-                <button (click)="openSM(modalAsig)" class="btn-primary btn-menu">Asignar Análisis</button>
-                <button (click)="close()" class="btn-primary">Cerrar Sesión</button>
+                <img class="img-user" src="https://i.ibb.co/qBBNKh3/2102647-01.png" alt="user">
+                <p class="name text">{{this.recep.name}}</p>
+                <p class="lastNames text">{{this.recep.lastnames}}</p>
+                <p class="rol text">Recepcionista</p>
+                <button (click)="openSM(modalCliente)" class="btn btn-menu">Agregar Cliente</button>
+                <button (click)="openSM(modalLabo)" class="btn btn-menu">Agregar Laboratorista</button>
+                <button (click)="openSM(modalAnali)" class="btn btn-menu">Agregar Análisis</button>
+                <button (click)="openSM(modalAsig)" class="btn btn-menu">Asignar Análisis</button>
+                <button (click)="close()" class="btn btn-menu">Cerrar Sesión</button>
             </div>
         </div>
-        <div class="col-9 text-center">
+        <div class="col-8 text-center">
             <div class="container-title">
-                <h1>LABO</h1>
+                <h1 class="title">LABO</h1>
             </div>
             <div class="row mx-auto">
                 <div [value]="item" *ngFor="let item of cards" class="col-sm-4 text-center">
@@ -35,7 +36,7 @@
                             <p class="p-card card-title">Estado</p>
                             <p class="p-card">{{item.estado}}</p>
                         </div>
-                        <button (click)="deleteCard(item.idpedido)" class="btn-primary btn-card">Eliminar</button>
+                        <button (click)="deleteCard(item.idpedido)" class="btn btn-card">Eliminar</button>
                     </div>
                 </div>
             </div>
@@ -44,7 +45,7 @@
 
     <ng-template #modalCliente let-modal>
         <div class="modal-header">
-            <h4 class="modal-title">Agregar Usuario</h4>
+            <h4 class="modal-title text-color">Agregar Usuario</h4>
             <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -60,13 +61,13 @@
                 [(ngModel)]="cliente.pwd" required>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-success" (click)="addCliente()">Guardar</button>
+            <button type="button" class="btn btn-card" (click)="addCliente()">Guardar</button>
         </div>
     </ng-template>
 
     <ng-template #modalLabo let-modal>
         <div class="modal-header">
-            <h4 class="modal-title">Agregar Laboratorista</h4>
+            <h4 class="modal-title text-color">Agregar Laboratorista</h4>
             <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -82,13 +83,13 @@
                 required>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-success" (click)="addLabo()">Guardar</button>
+            <button type="button" class="btn btn-card" (click)="addLabo()">Guardar</button>
         </div>
     </ng-template>
 
     <ng-template #modalAnali let-modal>
         <div class="modal-header">
-            <h4 class="modal-title">Agregar Análisis</h4>
+            <h4 class="modal-title text-color">Agregar Análisis</h4>
             <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -100,13 +101,13 @@
                 [(ngModel)]="analisis.price" required>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-success" (click)="addAnalisis()">Guardar</button>
+            <button type="button" class="btn btn-card" (click)="addAnalisis()">Guardar</button>
         </div>
     </ng-template>
 
     <ng-template #modalAsig let-modal>
         <div class="modal-header">
-            <h4 class="modal-title">Asignar Análisis</h4>
+            <h4 class="modal-title text-color">Asignar Análisis</h4>
             <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -128,7 +129,7 @@
             </select>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-success" (click)="asignarAnalisis()">Guardar</button>
+            <button type="button" class="btn btn-card" (click)="asignarAnalisis()">Guardar</button>
         </div>
     </ng-template>
 
