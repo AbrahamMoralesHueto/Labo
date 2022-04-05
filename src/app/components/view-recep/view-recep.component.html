@@ -1,102 +1,113 @@
-<body class="bg-dark container-fluid">
+<body>
     <div class="row">
-        <div class="col-3 text-center container-left">
+        <div class="col-3 text-center">
             <div class="container-recep">
-                <p>{{this.recep.name}}</p>
-                <p>{{this.recep.lastnames}}</p>
-                <p>Recepcionista</p>
-                <button (click)="openSM(modalCliente)">Agregar Cliente</button>
-                <button (click)="openSM(modalLabo)">Agregar Laboratorista</button>
-                <button (click)="openSM(modalAnali)">Agregar Análisis</button>
-                <button (click)="openSM(modalAsig)">Asignar Análisis</button>
-                <button (click)="close()">Cerrar Sesión</button>
+                <img class="img-user" src="https://i.ibb.co/qBBNKh3/2102647-01.png" alt="user">
+                <p class="name text">{{this.recep.name}}</p>
+                <p class="lastNames text">{{this.recep.lastnames}}</p>
+                <p class="rol text">Recepcionista</p>
+                <button (click)="openSM(modalCliente)" class="btn btn-menu">Agregar Cliente</button>
+                <button (click)="openSM(modalLabo)" class="btn btn-menu">Agregar Laboratorista</button>
+                <button (click)="openSM(modalAnali)" class="btn btn-menu">Agregar Análisis</button>
+                <button (click)="openSM(modalAsig)" class="btn btn-menu">Asignar Análisis</button>
+                <button (click)="close()" class="btn btn-menu">Cerrar Sesión</button>
             </div>
         </div>
-        <div class="col-9 text-center">
+        <div class="col-8 text-center">
             <div class="container-title">
-                <h1>LABO</h1>
+                <h1 class="title">LABO</h1>
             </div>
-            <div class="row container-card">
-
-                <div [value]="item" *ngFor="let item of cards" class="col-sm-4 card-analisis">
-                    <div class="div-p">
-                        <p class="p-card card-title">Nombre de analisis</p>
-                        <p class="p-card">{{item.analisis}}</p>
+            <div class="row mx-auto">
+                <div [value]="item" *ngFor="let item of cards" class="col-sm-4 text-center">
+                    <div class="card">
+                        <div class="div-p">
+                            <p class="p-card card-title">Nombre de analisis</p>
+                            <p class="p-card">{{item.analisis}}</p>
+                        </div>
+                        <div class="div-p">
+                            <p class="p-card card-title">Nombre del cliente</p>
+                            <p class="p-card">{{item.paciente}}</p>
+                        </div>
+                        <div class="div-p">
+                            <p class="p-card card-title">Laboratorista</p>
+                            <p class="p-card">{{item.laboratorista}}</p>
+                        </div>
+                        <div class="div-p">
+                            <p class="p-card card-title">Estado</p>
+                            <p class="p-card">{{item.estado}}</p>
+                        </div>
+                        <button (click)="deleteCard(item.idpedido)" class="btn btn-card">Eliminar</button>
                     </div>
-                    <div class="div-p">
-                        <p class="p-card card-title">Nombre del cliente</p>
-                        <p class="p-card">{{item.paciente}}</p>
-                    </div>
-                    <div class="div-p">
-                        <p class="p-card card-title">Laboratorista</p>
-                        <p class="p-card">{{item.laboratorista}}</p>
-                    </div>
-                    <div class="div-p">
-                        <p class="p-card card-title">Estado</p>
-                        <p class="p-card">{{item.estado}}</p>
-                    </div>
-                    <button (click)="deleteCard(item.idpedido)">Eliminar</button>
                 </div>
-
             </div>
         </div>
     </div>
 
     <ng-template #modalCliente let-modal>
         <div class="modal-header">
-            <h4 class="modal-title">Agregar Usuario</h4>
+            <h4 class="modal-title text-color">Agregar Usuario</h4>
             <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
-                <input type="text" name="name" class="input" placeholder="Ingrese el nombre" [(ngModel)]="cliente.name" required>
-                <input type="text" name="lastName" class="input" placeholder="Ingrese los apellidos" [(ngModel)]="cliente.lastnames" required>
-                <input type="email" name="email" class="input" placeholder="Ingrese el email" [(ngModel)]="cliente.email" required>
-                <input type="password" name="pwd" class="input" placeholder="Ingrese la contraseña" [(ngModel)]="cliente.pwd" required>
+            <input type="text" name="name" class="input" placeholder="Ingrese el nombre" [(ngModel)]="cliente.name"
+                required>
+            <input type="text" name="lastName" class="input" placeholder="Ingrese los apellidos"
+                [(ngModel)]="cliente.lastnames" required>
+            <input type="email" name="email" class="input" placeholder="Ingrese el email" [(ngModel)]="cliente.email"
+                required>
+            <input type="password" name="pwd" class="input" placeholder="Ingrese la contraseña"
+                [(ngModel)]="cliente.pwd" required>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-success" (click)="addCliente()">Guardar</button>
+            <button type="button" class="btn btn-card" (click)="addCliente()">Guardar</button>
         </div>
     </ng-template>
-    
+
     <ng-template #modalLabo let-modal>
         <div class="modal-header">
-            <h4 class="modal-title">Agregar Laboratorista</h4>
+            <h4 class="modal-title text-color">Agregar Laboratorista</h4>
             <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
-            <input type="text" name="name" class="input" placeholder="Ingrese el nombre" [(ngModel)]="labo.name" required>
-            <input type="text" name="lastName" class="input" placeholder="Ingrese los apellidos" [(ngModel)]="labo.lastnames" required>
-            <input type="email" name="email" class="input" placeholder="Ingrese el email" [(ngModel)]="labo.email" required>
-            <input type="password" name="pwd" class="input" placeholder="Ingrese la contraseña" [(ngModel)]="labo.pwd" required>
+            <input type="text" name="name" class="input" placeholder="Ingrese el nombre" [(ngModel)]="labo.name"
+                required>
+            <input type="text" name="lastName" class="input" placeholder="Ingrese los apellidos"
+                [(ngModel)]="labo.lastnames" required>
+            <input type="email" name="email" class="input" placeholder="Ingrese el email" [(ngModel)]="labo.email"
+                required>
+            <input type="password" name="pwd" class="input" placeholder="Ingrese la contraseña" [(ngModel)]="labo.pwd"
+                required>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-success" (click)="addLabo()">Guardar</button>
+            <button type="button" class="btn btn-card" (click)="addLabo()">Guardar</button>
         </div>
     </ng-template>
 
     <ng-template #modalAnali let-modal>
         <div class="modal-header">
-            <h4 class="modal-title">Agregar Análisis</h4>
+            <h4 class="modal-title text-color">Agregar Análisis</h4>
             <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
-            <input type="text" name="name" class="input" placeholder="Ingrese el nombre" [(ngModel)]="analisis.name" required>
-            <input type="number" name="lastName" class="input" placeholder="Ingrese el precio" [(ngModel)]="analisis.price" required>
+            <input type="text" name="name" class="input" placeholder="Ingrese el nombre" [(ngModel)]="analisis.name"
+                required>
+            <input type="number" name="lastName" class="input" placeholder="Ingrese el precio"
+                [(ngModel)]="analisis.price" required>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-success" (click)="addAnalisis()">Guardar</button>
+            <button type="button" class="btn btn-card" (click)="addAnalisis()">Guardar</button>
         </div>
     </ng-template>
 
     <ng-template #modalAsig let-modal>
         <div class="modal-header">
-            <h4 class="modal-title">Asignar Análisis</h4>
+            <h4 class="modal-title text-color">Asignar Análisis</h4>
             <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -104,11 +115,13 @@
         <div class="modal-body">
             <select name="cliente" class="input" [(ngModel)]="idPac">
                 <option>Seleccione una opción</option>
-                <option *ngFor="let item of comboBoxC" [value]="item.idpaciente">{{item.nombre}} {{item.apellidos}}</option>
+                <option *ngFor="let item of comboBoxC" [value]="item.idpaciente">{{item.nombre}} {{item.apellidos}}
+                </option>
             </select>
             <select name="labo" class="input" [(ngModel)]="idLab">
                 <option>Seleccione una opción</option>
-                <option *ngFor="let item of comboBoxL" [value]="item.idlaboratorista">{{item.nombre}} {{item.apellidos}}</option>
+                <option *ngFor="let item of comboBoxL" [value]="item.idlaboratorista">{{item.nombre}} {{item.apellidos}}
+                </option>
             </select>
             <select name="analisis" class="input" [(ngModel)]="idAna">
                 <option>Seleccione una opción</option>
@@ -116,7 +129,7 @@
             </select>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-success" (click)="asignarAnalisis()">Guardar</button>
+            <button type="button" class="btn btn-card" (click)="asignarAnalisis()">Guardar</button>
         </div>
     </ng-template>
 
